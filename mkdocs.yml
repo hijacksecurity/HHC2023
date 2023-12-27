@@ -100,14 +100,19 @@ nav:
 # The 'nav' section defines the content of the sidebar navigation.
 - Welcome: 'index.md'
 - Objectives:
+  - Introduction:
+      - Holiday Hack Orientation: 'objectives/o1.md'
+  - 101's:
+      - Snowball Fight: 'objectives/o2.md'
+      - Linux 101: 'objectives/o3.md'
   - Section 1:
-    - Objective 1: 'objectives/o1.md'
+    - Objective 1: 'objectives/example1.md'
   - Section 2:
-    - Objective 2: 'objectives/o2.md'
-    - Objective 3: 'objectives/o3.md'
+    - Objective 2: 'objectives/example2.md'
+    - Objective 3: 'objectives/example3.md'
   - Section 3:
-    - Objective 4: 'objectives/o4.md'
-    - Objective 5: 'objectives/o5.md'
+    - Objective 4: 'objectives/example4.md'
+    - Objective 5: 'objectives/example5.md'
 - Extras:
   - BONUS!: 'bonus.md'
   - Easter Eggs: 'easter_eggs.md'
