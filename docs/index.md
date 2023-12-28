@@ -25,13 +25,13 @@ So, buckle up, grab your elf hat (or your favorite tech gadget), and let's unwra
 !!! success "1. Holiday Hack Orientation - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
     Follow [Jingle Ringford's instructions](./objectives/o1.md) to get your bearings at Geese Islands.
 
-!!! success "2. Insert Objective 2 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    Insert [your answer](./objectives/o2.md) here.
+!!! success "2. Snowball Fight - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    Beat elfs and Santa at [Snowball Fight](./objectives/o2.md) by tinkering with client side variables and parameters.
 
-!!! success "3. Insert Objective 3 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
-    Insert [your answer](./objectives/o3.md) here.
+!!! success "3. Linux 101 - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    A super cool way to play around with computers is by getting to know [Linux](./objectives/o3.md).
 
-!!! success "4. Insert Objective 4 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star:"
+!!! success "4. Insert Objective 4 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
     Insert [your answer](./objectives/o4.md) here.
 
 !!! success "5. Insert Objective 5 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star:"
@@ -39,7 +39,7 @@ So, buckle up, grab your elf hat (or your favorite tech gadget), and let's unwra
 
 ## Conclusion
 
-!!! Abstract "Story"
+??? Abstract "Story"
     Just sit right back and you’ll hear a tale,<br/>
     A tale of a yuletide trip<br/>
     That started from a tropic port,<br/>

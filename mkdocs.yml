@@ -55,14 +55,14 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/<twitter_username>
+      link: https://twitter.com/HijackSecurity
       name: Twitter
     - icon: fontawesome/brands/github
-      link: https://github.com/<github_username>
+      link: https://github.com/hijacksecurity
       name: GitHub
-    - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/<instagram_username>
-      name: Instagram
+    #- icon: fontawesome/brands/instagram
+    #  link: https://www.instagram.com/<instagram_username>
+    #  name: Instagram
 extra_css:
   - css/extra.css
 extra_javascript:
@@ -105,6 +105,8 @@ nav:
   - 101's:
       - Snowball Fight: 'objectives/o2.md'
       - Linux 101: 'objectives/o3.md'
+      - Reportinator: 'objectives/o4.md'
+      - Azure 101: 'objectives/o5.md'
   - Section 1:
     - Objective 1: 'objectives/example1.md'
   - Section 2:
