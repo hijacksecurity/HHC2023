@@ -10,7 +10,19 @@ This annual bash, courtesy of the brainy folks at SANS Institute, is like a holi
 
 In this report, we're spilling the digital cocoa on what went down. Expect tales of epic hacks, brain-teasing challenges, and maybe a reindeer or two trying to figure out a firewall. It's all fun, games, and a sprinkle of tech magic.
 
-So, buckle up, grab your elf hat (or your favorite tech gadget), and let's unwrap the adventures of the 2023 SANS Holiday Hack Challenge! 🎅🔒🎉
+So, buckle up, grab your elf hat (or your favorite tech gadget), and let's unwrap the adventures of the 2023 SANS Holiday Hack Challenge! 🎅🔒🎉<br/>
+
+---
+
+Wow [ChatGPT](https://chat.openai.com/) sure is pretty good at writing report intros! 😊 A little bit of personal touch about this year's challenge. My name is HijackSecurity, it's my 2nd year fully completing Holiday Hack Challenge and writing the report.
+Hats off to SANS team, thank you - you guys did an amazing job creating this challenge, HHC seems to somehow only keep getting better and better!<br/>
+
+This year's game was awesome - fun, challenging and highly rewarding! The challenges had it all - AI, healthy amount of Azure APIs, SQL injections, 
+lots of client-side code manipulation (JS breakpoints - what are those), some GameBoy hacking, lock-picking went back to high-school days, JWT's are cool, practical Java Deserialization exploitation, 
+casual quick & dirty Python scripting, satellite hacking and the need to think outside the box like every hacking challenge demands.<br/>
+
+Please give this write-up a read - you can follow along through all the [objectives](./objectives/o1.md). Use "Navigation tip" to easily walk through challenges step-by-step. Each Section has a set
+of Objectives which contain what the Objective is, Solution (including official Answer) and Response after completion, along with other supplemental information to stay true to the Holiday Hack story. 
 
 !!! note "100-page submission limit"
     Each year there's a huge number of write-ups that need to be reviewed by the Counter Hack team. To find a good middle ground between preventing information overload and creating a write-up that can stand on its own as a learning resource, some parts, like the *navigation tip* below, are collapsed by default. Skipping over these will not take away from understanding the overall solution, but feel free to expand them to get some additional information.
@@ -26,16 +38,39 @@ So, buckle up, grab your elf hat (or your favorite tech gadget), and let's unwra
     Follow [Jingle Ringford's instructions](./objectives/o1.md) to get your bearings at Geese Islands.
 
 !!! success "2. Snowball Fight - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    Beat elfs and Santa at [Snowball Fight](./objectives/o2.md) by tinkering with client side variables and parameters.
+    Beat elfs and Santa at [Snowball Fight](./objectives/o2.md) by tinkering with client-side variables and parameters.
 
 !!! success "3. Linux 101 - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    A super cool way to play around with computers is by getting to know [Linux](./objectives/o3.md).
+    A super cool way to play around with computers is by getting to know [Linux command-fu](./objectives/o3.md).
 
-!!! success "4. Insert Objective 4 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    Insert [your answer](./objectives/o4.md) here.
+!!! success "4. Reportinator - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    Improve the quality of the ChatNPT-generated [penetration testing report](./objectives/o4.md) via the absolute hacker way or by reading with a keen eye.
 
-!!! success "5. Insert Objective 5 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star:"
-    Insert [your answer](./objectives/o5.md) here.
+!!! success "5. Azure 101 - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    Get to know [Azure CLI](./objectives/o5.md) while enumerating Goose Islands' IT infrastructure.
+
+!!! success "6. Certificate SSHenanigans - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star:"
+    [gingerbread](./objectives/o6.md)
+
+!!! success "7. Active Directory - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star:"
+    [InstructionsForEnteringSatelliteGroundStation.txt](./objectives/o8.md)
+
+!!! success "8. Elf Hunt - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [Hunt down the elfs](./objectives/o7.md) by tikering with JWT token and client-side variables.
+
+!!! success "9. The Captain's Comms - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star:"
+    [Frequency: 10426 HZ Go-Date: 1224 Go-Time: 1200](./objectives/o9.md)
+
+!!! success "10. Luggage Lock - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [5 - 1 - 7 - 4](./objectives/o19.md)  
+
+!!! success "11. Faster Lock Combination - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [33 - 23 - 17](./objectives/o10.md) 
+
+
+!!! success "16. Linux PrivEsc - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [santa](./objectives/o16.md)  
+
 
 ## Conclusion
 

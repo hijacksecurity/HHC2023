@@ -102,11 +102,33 @@ nav:
 - Objectives:
   - Introduction:
       - Holiday Hack Orientation: 'objectives/o1.md'
-  - 101's:
+  - Basics:
       - Snowball Fight: 'objectives/o2.md'
       - Linux 101: 'objectives/o3.md'
       - Reportinator: 'objectives/o4.md'
       - Azure 101: 'objectives/o5.md'
+  - Azure Siege:
+      - Certificate SSHenanigans: 'objectives/o6.md'
+      - Active Directory: 'objectives/o8.md'
+  - JWTokenization:
+      - Elf Hunt: 'objectives/o7.md'
+      - The Captain's Comms: 'objectives/o9.md'
+  - Lock Picking:
+      - Luggage Lock: 'objectives/o19.md'
+      - Faster Lock Combination: 'objectives/o10.md'
+  - GameBoy:
+      - "Game Cartridges: Vol 1": 'objectives/o11.md'
+      - "Game Cartridges: Vol 2": 'objectives/o12.md'
+      - "Game Cartridges: Vol 3": 'objectives/o13.md'
+  - Hacking:
+      - Linux PrivEsc: 'objectives/o16.md'
+      - Na'an: 'objectives/o17.md'
+      - Hashcat: 'objectives/o18.md'
+  - Security Operations:
+      - KQL Kraken Hunt: 'objectives/o14.md'
+      - Phish Detection Agency: 'objectives/o15.md'
+  #- Space Station:
+
   - Section 1:
     - Objective 1: 'objectives/example1.md'
   - Section 2:
