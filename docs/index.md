@@ -64,12 +64,29 @@ of Objectives which contain what the Objective is, Solution (including official 
 !!! success "10. Luggage Lock - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
     [5 - 1 - 7 - 4](./objectives/o19.md)  
 
-!!! success "11. Faster Lock Combination - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [33 - 23 - 17](./objectives/o10.md) 
+!!! success "11. Game Cartridges: Vol 1 - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [santaconfusedgivingplanetsqrcode](./objectives/o11.md) 
 
+!!! success "12. Game Cartridges: Vol 2 - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [GL0RY](./objectives/o12.md) 
+    
+!!! success "13. Game Cartridges: Vol 3 - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [!tom+elf!](./objectives/o13.md) 
 
-!!! success "16. Linux PrivEsc - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+!!! success "14. Linux PrivEsc - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
     [santa](./objectives/o16.md)  
+
+!!! success "15. Na'an - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    Beat cheating Shifty at Card Shuffle by [cheating yourself](./objectives/o17.md) via Python NaN Injection.
+
+!!! success "16. Hashcat - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [IluvC4ndyC4nes!](./objectives/o18.md)
+
+!!! success "17. KQL Kraken Hunt - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [Beware the Cube that Wombles](./objectives/o14.md)
+
+!!! success "18. Phish Detection Agency - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    [](./objectives/o15.md)
 
 
 ## Conclusion
