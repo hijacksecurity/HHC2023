@@ -127,8 +127,9 @@ nav:
   - Security Operations:
       - KQL Kraken Hunt: 'objectives/o14.md'
       - Phish Detection Agency: 'objectives/o15.md'
-  #- Space Station:
-
+  - Satellite Station:
+      - Space Island Door Access Speaker: 'objectives/o20.md'
+      - Camera Access: 'objectives/o21.md'
+      - Missile Diversion: 'objectives/o22.md'
 - Extras:
   - BONUS!: 'bonus.md'
-  - Easter Eggs: 'easter_eggs.md'
