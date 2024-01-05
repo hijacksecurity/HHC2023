@@ -1420,7 +1420,7 @@ Just to recap the process - the input is submitted via <code>Debug</code> in the
 <p>We can now focus on the database. Let's dump all relevant tables - 5 tables found:<br/>
 <code>union all SELECT table_name FROM information_schema.tables WHERE table_schema != 'mysql' AND table_schema != 'information_schema';</code></p>
 <p><img alt="Tables" src="../../img/objectives/o22/tables.jpg" /></p>
-<p>Get user with something simple like generated SQL syntax error - the username is fitting <code>targeter</code>. <br/>
+<p>Get user with something simple like a denied statement - the username is fitting <code>targeter</code>. <br/>
 For example:
 <code>union all SELECT user FROM mysql.user;</code></p>
 <p><img alt="User" src="../../img/objectives/o22/user.jpg" /></p>
@@ -1435,8 +1435,8 @@ Ok now let's dump all column names using this query:<br/>
 <p>From here, change the table name and get columns for all other tables.</p>
 <p>Now let's dump data from all tables using this convenient query in conjunction with Wireshark for getting larger output:<br/>
 <code>union all SELECT json_arrayagg(concat_ws(0x3a,id, numerical_mode, str_mode, str_desc)) from pointing_mode_to_str;</code><br/></p>
-<p>In this query, <code>id, numerical_mode, str_mode, str_desc</code> are column names and <code>pointing_mode_to_str</code> is the table. 
-<i>Note: In Wireshark, start capturing then follow TCP stream as in <a href="../o21/">Camera Access</a> challenge</i></p>
+<p>In this query, <code>id, numerical_mode, str_mode, str_desc</code> are column names and <code>pointing_mode_to_str</code> is the table.<br/>
+<i>Note: In Wireshark, start capturing then follow TCP stream as in <a href="../o21/">Camera Access</a> challenge.</i></p>
 <p><img alt="pointing_mode_to_str" src="../../img/objectives/o22/pointing_mode_to_str.jpg" /></p>
 <p>Apply a lil bit of format editing to learn that we need to have <code>targeting_mode</code> be set to 1 to point missile towards the Sun instead of the Earth.</p>
 <p><img alt="parsed" src="../../img/objectives/o22/parsed.jpg" /></p>
@@ -1450,7 +1450,7 @@ The <code>TO_BASE64</code> SQL function can be used to safely transfer binary da
 <p>Now find out what kind of data this is - it's Java serialization data and looks like a function call.</p>
 <p><img alt="Data Type" src="../../img/objectives/o22/datatype.jpg" /></p>
 <p>Now get the <code>results</code> column: <code>union all select TO_BASE64(results) from satellite_query;</code><br/>
-Again decode Base64 and we have Java file:</p>
+Again decode Base64 and we have the Java file:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SatelliteQueryFileFolderUtility.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1715,7 +1715,7 @@ Let's create <code>CallIt.java</code></p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p><code>java_out</code> is the serialized Java object call to <code>SatelliteQueryFileFolderUtility</code> in its binary form, updating the <code>pointing_mode</code> table to set its mode to point to the Sun (<code>1</code>).
+<p><code>java_out</code> is the serialized Java object call to <code>SatelliteQueryFileFolderUtility</code> in its bytecode form, updating the <code>pointing_mode</code> table to set its mode to point to the Sun (<code>1</code>).
 Now convert the binary into hex so we can send the statement without issues - Notepad++ can be used:</p>
 <p><img alt="Hex Payload" src="../../img/objectives/o22/hex.jpg" /></p>
 <p>The final <code>INSERT</code> query with payload should look like this, using native SQL function <code>UNHEX</code>:<br/>

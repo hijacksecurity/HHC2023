@@ -1419,7 +1419,8 @@ Its easiest to grab a friend play with and beat Santa but tinkering with client-
 <i>Terminal: Snowball Hero</i><br/>
 Have an iframe in your document? Be sure to <a href="https://gist.github.com/chrisjd20/93771da596ca5e49043f148a845c469f">select the right context</a> before meddling with JavaScript.</p>
 </details>
-<p>Based on Santa's story and the first hint, it is clear what will be the theme of this year's Holiday Hack Challenge.
+<p>Based on Santa's story and the first hint, it is clear what will be the theme of this year's Holiday Hack Challenge.<br/>
+ChatNPT - AI technology that can convince Santa Claus to go somewhere nice and warm! ©<br/>
 <img alt="AI" src="../../img/objectives/o2/ai.jpg" width="500" /></p>
 <p>Walking past Santa, this seems like the most appropriate time to check out vendor booths.<br/></p>
 <p><img alt="Vendor Booths" src="../../img/objectives/o2/vendor_booths.jpg" /></p>
@@ -1446,15 +1447,16 @@ Just remember, it's all about having fun and sharing the joy of the holiday seas
 So, are you in? We'd really love your company in this epic snowball battle!</p>
 </details>
 <h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">⚓︎</a></h2>
-<p>To solve this challenge, first play the game normally (Random Match Making) observing network traffic using Chrome Dev Tools. Static content aside, the following request stands out. This URL has an interesting parameter "singlePlayer" which is set to false (singlePlayer=false). 
+<p>To solve this challenge, first play the game normally (Random Match Making) observing network traffic using Chrome Dev Tools. Static content aside, the following request stands out. This URL has an interesting parameter <code>singlePlayer</code> which is set to <code>false</code> (<code>singlePlayer=false</code>). 
 <img alt="singlePlayer" src="../../img/objectives/o2/singlePlayer.jpg" /></p>
 <p>Next, read through the game's JavaScript file in Dev Tools' Sources tab and find where URL with its parameters is being built. As this URL is built, window's location is then assigned to it.
-Close and restart the game but don't start matchmaking yet - stay in lobby. Set a breakpoint at this assignment (line 81) so you could manipulate the URL.</p>
+Close and restart the game but don't start matchmaking yet - stay in the lobby. Set a breakpoint at this assignment (line 81) so you could manipulate the URL.</p>
 <p><img alt="URL" src="../../img/objectives/o2/url.jpg" /></p>
-<p>Now start Random Match Making - your action will pause as the JS breakpoint is hit. You can now print the URL to the console and modify it to set singlePlayer to true.</p>
+<p>Now start Random Match Making - your action will pause at the JS breakpoint. You can now print the URL to the console and modify it to set <code>singlePlayer</code> to <code>true</code>.</p>
 <p><img alt="Modified URL" src="../../img/objectives/o2/url_mod.jpg" /></p>
-<p>Now that URL is modified, resume script execution. Powerful "Elf the Dwarf" appears as my partner, holding none other than snowball shotgun with big sprrrreeead. At this point victory is imminent and all that's needed is to shoot every elf and Santa.</p>
+<p>Now that URL is modified, resume script execution. Powerful "Elf the Dwarf" appears as my partner, holding none other than snowball shotgun with big sprrrreeead. At this point victory is imminent and all that's left is to shoot every elf and Santa.</p>
 <p><img alt="Modified URL" src="../../img/objectives/o2/elfthedwarf.jpg" width="500" /></p>
+<p>No elves or Santa were hurt during this competitive but friendly game of snowball.</p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>
 <p>Elf the Dwarf saves the day!<br/>
