@@ -176,4 +176,8 @@ Output keeps rolling:
 After running this for a while, you can move around the sea to adjust your density percentages.
 When you finally have 171 different types of fish, go talk to Poinsettia McMittens.
 
+![Last One](./img/misc/171.jpg){ width="600" }
+
 ??? quote "Poinsettia McMittens @ Squarewheel Yard"
+    You managed to catch every fish? You're like the fishing version of a Christmas miracle!<br/>
+    Now, if only you could teach me your ways... but then again, I'm already pretty fabulous at everything I do.
