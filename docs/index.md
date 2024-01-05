@@ -5,14 +5,14 @@
 ## Introduction
 
 Hello and welcome to my [2023 SANS Holiday Hack Challenge](https://2023.holidayhackchallenge.com/) write-up! My name is HijackSecurity and it's my 2nd year completing HHC all the way through (last one was back
-in 2018). I had a lot of fun solving challenges and learned many new things. My main motivation for participating this year was to encourage my friends, challenge myself, and
+in 2018). I had a lot of fun solving challenges and learned many new things. My main motivation for participating this year was to encourage my friends, as well as challenge myself, and
 hopefully write an interesting report to help others learn some new skills or nudge along if you are following through. Huge thanks to the SANS team for creating top-notch CTF, you guys rock! 🤘🙂 <br/>
 
 This year's HHC was awesome - fun, tough and highly rewarding! The challenges had it all - AI, healthy amount of Azure APIs, SQL injections, 
 lots of client-side code manipulation (JS breakpoints - what are those), some GameBoy hacking, lock-picking went back to high-school days, JWT's are taking over, practical Java Deserialization exploitation, 
 casual quick & dirty Python scripting, satellite hacking and the need to think outside the box like every hacking challenge demands. 🔒😎<br/>
 
-The write-up is broken down into multiple sections, each containing similarly-themed [objectives](./objectives/o1.md). Within each objective, there's a description of what the objective is, any relevant hints gathered,
+The write-up is broken down into multiple sections, each containing similarly-themed [objectives](./objectives/o1.md). Within each objective, there's its request, any relevant hints gathered,
 my solution, and the final response from whoever given the challenge. To walk through challenges step-by-step, use the "Navigation tip" below. There are also final answers here, 
 the full Holiday Hack story, and a family photo that's photogenic enough for a post card. Besides all this, there is a [BONUS!](./bonus.md) section for a couple of challenges outside of the 
 main story. Enjoy! 🎅🎄
