@@ -12,8 +12,8 @@ This year's HHC was awesome - fun, challenging and highly rewarding! The challen
 lots of client-side code manipulation (JS breakpoints - what are those), some GameBoy hacking, lock-picking went back to high-school days, JWT's are taking over, practical Java Deserialization exploitation, 
 casual quick & dirty Python scripting, satellite hacking and the need to think outside the box like every hacking challenge demands. 🔒😎<br/>
 
-The write-up is broken down into multiple sections, each containing similarly-themed [objectives](./objectives/o1.md). Within each objective, there's its request, any relevant hints gathered,
-my solution, and the final response from whoever given the challenge. To walk through challenges step-by-step, use the "Navigation tip" below. There are also final answers here, 
+The write-up is broken down into multiple sections, each containing similarly-themed [objectives](./objectives/o1.md). Within each objective, there are its request, any relevant hints gathered,
+my solution, and the final response from whoever given the challenge. To walk through objectives step-by-step, use the "Navigation tip" below. There are also final answers here, 
 the full Holiday Hack story, and a family photo that's photogenic enough for a post card. Besides all this, there is a [BONUS!](./bonus.md) section for a couple of challenges outside of the 
 main story. Enjoy! 🎅🎄
 
