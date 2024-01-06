@@ -1398,15 +1398,16 @@ Objective: BONUS! Fishing Guide</i><br/>
 One approach to automating web tasks entails the browser's developer console. Browsers' console allow us to manipulate objects, inspect code, and even interact with <a href="https://javascript.info/websocket">websockets</a>.</p>
 </details>
 <p>I solved this challenge using <a href="https://www.selenium.dev/">Selenium</a> browser automation and little bit of looking around through game's HTML.
-There's a reference to a "dev page" <code>https://2023.holidayhackchallenge.com/sea/fishdensityref.html</code> which shows fish density.</p>
+There's a reference to a "dev only" page <code>https://2023.holidayhackchallenge.com/sea/fishdensityref.html</code> which shows fish density.</p>
 <p><img alt="DEV ONLY" src="../img/misc/devonly.jpg" /></p>
 <p>The most important fish type density to look at is "Piscis Cyberneticus Skodo" since it's only present in very specific part of the sea.
-Save its image, then use something like <a href="https://github.com/LorenzCK/OnTopReplica">OnTopReplica</a> to move phish density PNG over the sea minimap,
+Save its image, then use something like <a href="https://github.com/LorenzCK/OnTopReplica">OnTopReplica</a> to move fish density PNG over the sea minimap,
 setting window opacity to 50%. </p>
 <p>Map edges can be determined by crossing from one side to the other. You need to catch the rare fish type from the white spot on the map. It should look something like this.</p>
 <p><img alt="Map" src="../img/misc/map.jpg" /></p>
 <p>The Selenium browser automation code will do the trick - make sure to include your credentials in the .env file.
-XPATH's can be copied from within the browser in Inspect Element.</p>
+XPATH's can be copied from within the browser in Inspect Element. Just want to acknowledge that this script is just
+quick &amp; dirty Python to get the job done, it can probably be improved. 😜 </p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fishing.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

@@ -1405,7 +1405,7 @@ In his hubris, Wombley revealed that he thinks you won't be able to access the s
 <h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">⚓︎</a></h2>
 <p>To start, download the <a href="https://www.holidayhackchallenge.com/2023/client_container.zip">NanoSat framework</a>. Make sure you have <code>docker</code> installed, then build and run the container (<code>sudo ./build_and_run.sh</code>) 
 from within <code>client_container</code> - this will start up a VNC server on default port 5900 and a web VNC proxy on port 6901. You can use <a href="https://www.tightvnc.com/download.php">TightVNC</a> to VNC into the server.<br/>
-<i>It's possible that your connection doesn't work on the first try and you need to reboot your host running the container and re-connect.</i></p>
+<i>Note: It's possible that your connection doesn't work on the first try and you need to reboot your host running the container and re-connect.</i></p>
 <p>Once connection is established, you should see the NanoSat desktop.</p>
 <p><img alt="Wombley Cube" src="../../img/objectives/o21/desktop.jpg" /></p>
 <p>Inside the <code>client_container</code> directory is very helpful <code>README.md</code> file that describes how to configure <a href="https://www.wireguard.com/">Wireguard VPN Tunnel</a>.
@@ -1417,7 +1417,7 @@ Then save and close the file.</p>
 <p>Now, restart the tunnel interface and you should have an established connection with the peer (<code>10.1.1.1</code>).</p>
 <p><img alt="Interface" src="../../img/objectives/o21/int.jpg" /></p>
 <p>Let's launch NanoSat MO Base Station Tool and start reading the <a href="https://nanosat-mo-framework.readthedocs.io/en/latest/opssat/testing.html">documentation</a>.
-You can connect to the server's supervisor directory:</p>
+You should be able to connect to the server's supervisor directory:</p>
 <p><img alt="Test Tool" src="../../img/objectives/o21/testtool.jpg" /></p>
 <p>After getting supervisor's directory, we need to find camera's functionality.
 Select "AppsLauncher" and click "Connect to Selected Provider".
@@ -1429,14 +1429,15 @@ Now you can start the camera with "runApp".</p>
 There's a <code>Base64SnapImage</code> parameter available, which allows you to get the Base64 of the image (likely the To-Do list we need 😉)
 Unfortunately, the value is too big for us to retrieve via the visual app so we need another way - refer to the documentation.</p>
 <p><img alt="Get Value" src="../../img/objectives/o21/getvalue.jpg" /></p>
-<p>Ok what else do we have on the system? How about Wireshark! Start it up, monitoring <code>wg0</code> interface, now get image value again.
-In Wireshark, follow TCP stream to get the full conversation. Ok Base64-encoded image is there but it's LARGE.</p>
+<p>Ok what else do we have on the system? How about Wireshark! There's unencrypted traffic going over the wire. Start it up, monitoring <code>wg0</code> interface, now get image value again.
+In Wireshark, "follow TCP stream" to get the full conversation. Ok Base64-encoded image is there but it's LARGE.</p>
 <p><img alt="Base64 Image" src="../../img/objectives/o21/b64image.jpg" /></p>
 <p>Preferably we would like to copy all contents of the network conversation into a file. Wait for the image to fully load in Wireshark, then
 "Save as..." and save data as file.
 We can continue to follow "living off the land" methodology and ship the file over to our host server and then parse out the network conversation.</p>
-<p><code>curl</code> in on the box - that should work! Start the listener on the host machine that's hosting the container: <code>nc -w 3 -lvnp 5555 &gt; data.dmp</code> - this will 
-write all input into <code>data.dmp</code> file. Now send the file from the container:</p>
+<p><code>curl</code> in on the box - that should work! Start the listener on the host machine that's hosting the container: <br/>
+<code>nc -w 3 -lvnp 5555 &gt; data.dmp</code><br/>
+This will write all input into <code>data.dmp</code> file. Now send the file from the container:</p>
 <p><img alt="Connect" src="../../img/objectives/o21/connect.jpg" /></p>
 <p>At this point the file is on the host but we know we need to parse out junk since it is just network data (+some <code>curl</code> overhead).
 We can simply use Notepad++ for this.</p>

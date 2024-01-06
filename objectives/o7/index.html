@@ -1400,11 +1400,11 @@ Unlock the mysteries of JWTs with insights from <a href="https://portswigger.net
 </details>
 <h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">⚓︎</a></h2>
 <p>To solve this challenge, obviously it is a good idea to read <a href="https://portswigger.net/web-security/jwt">PortSwigger's JWT Guide</a>, it describes some of the possible attacks on JWT tokens.
-Read it? Good, now let's play the game! It is an elf hunting game and the problem is elfs are flying very fast so it's hart to catch them.
+Read it? Good, now let's play the game! It is an elf hunting game and the problem is elfs are flying very fast so it's hard to catch them.
 OK we know there should be some kind of JWT token for the game so let's look for it in the game's JS source code using Chrome Dev Tools. 
 It is being set as a cookie:</p>
 <p><img alt="JWT Token" src="../../img/objectives/o7/jwttoken.jpg" /></p>
-<p>JWT's full value can be printed on the Dev Tools JS console - be sure to switch to the elfhunt.org/ context (this is the game site):</p>
+<p>JWT's full value can be printed on the Dev Tools JS console - be sure to switch to the <code>elfhunt.org/</code> context (this is the game site):</p>
 <p><img alt="Full Value" src="../../img/objectives/o7/fullvalue.jpg" /></p>
 <p>Load up the token into <a href="https://jwt.io/">JWT.io</a> convenient decoder and learn that it is not signed (alg=none) and the only data there is <code>speed</code> which is set to <code>-500</code>.</p>
 <p><img alt="Decoded" src="../../img/objectives/o7/decoded.jpg" /></p>

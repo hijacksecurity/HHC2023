@@ -1432,7 +1432,7 @@ Find a private key, update an existing JWT!</p>
 <p>Jump into the terminal and start putting pieces of the puzzle together. 
 This is Captain's battlestation:</p>
 <p><img alt="Set-up" src="../../img/objectives/o9/setup.jpg" /></p>
-<p>First, the background. We have the newly installed 'Just Watch This' Software Defined Radio system and are looking for the miscreants 'go-time' date and time for the attack so we could send a misleading message for 
+<p>First, the background. We have the newly installed 'Just Watch This' Software Defined Radio system and are looking for the miscreants 'go-time' date and time for the attack so we could send a misleading transmission for 
 4 hours prior, and this will make sure islands' authorities are locked &amp; loaded for response.<br/>
 There are different ROLEs that are required for AUTHORIZATION to different items in Captain's Comms.</p>
 <p><img alt="Background" src="../../img/objectives/o9/background.jpg" width="600" /></p>
@@ -1441,13 +1441,15 @@ The proper use of this AUTHORIZATION token will allow viewing signals but not de
 Sounds like <code>radioMonitor</code> is the initial role we should focus on obtaining. Cool, onto finding more about getting to this file.</p>
 <p><img alt="Owner's Card" src="../../img/objectives/o9/ownerscard.jpg" width="600" /></p>
 <p>Quickly check our current role. Copy the <code>justWatchThisRole</code> cookie value for <code>https://captainscomms.com</code> site (using Dev Tools) and decode the value using <a href="https://jwt.io/">JWT.io</a>.
-Good to know - our current role is <code>radioUser</code>. Also, keep in mind that the message is signed by <code>RS256</code> so you can't simply modify its contents, you would need the key to re-sign the payload.</p>
+Good to know - our current role is <code>radioUser</code>. Also, keep in mind that the message is signed by <code>RS256</code> (asymmetric algorithm) so you can't simply modify its contents, you would need the 
+key to re-sign the payload.</p>
 <p><img alt="Current Role" src="../../img/objectives/o9/currentrole.jpg" /></p>
 <p>Ok now let's refer to the Owner's Manual Volume 1. This confirms that we are on the lowest permissions role (<code>radioUser</code>) as well as we need to look for <code>radioMonitor</code> mentioned on the Owner's Card.</p>
 <p><img alt="Just Watch This Owner's Manual Volume 1" src="../../img/objectives/o9/manual1.jpg" width="700" /></p>
 <p>Let's try to get the <code>radioMonitor</code> role token based on all this information. From the Owner's Card, location should be <code>https://captainscomms.com/jwtDefault/rMonitor.tok</code>.
 On first access to this location, error "Invalid authorization token provided" occurs. Ok, let's observe normal traffic using Burp while interacting with Captain's Comms. 
-The request shows that we are actually authenticating with the token via Authorization header on each request. The rest of Captain's Comms requests likely require this header and that's why there was an error.</p>
+The request shows that we are actually authenticating with the token via Authorization header on each request. The rest of Captain's Comms requests likely require this header and that's why there was an error.
+This is a typical request to the website:</p>
 <p><img alt="Observe" src="../../img/objectives/o9/observe.jpg" /></p>
 <p>Re-send the request for <code>https://captainscomms.com/jwtDefault/rMonitor.tok</code> with our current Authorization header and value:</p>
 <p><img alt="radioMonitor Token" src="../../img/objectives/o9/rmonitor.jpg" /></p>
@@ -1478,7 +1480,7 @@ Captain's Journal mentions another role <code>GeeseIslandsSuperChiefCommunicatio
 <p>Now let's review Captain's ChatNPT Initial To-Do List since it was crossed off from Captain's To-Do List.
 This is interesting because we know exactly where this "same directory" is, so looking for <code>capsPubKey.key</code> file in <code>keys</code> folder should be no problem.</p>
 <p><img alt="Captain's ChatNPT Initial To-Do List" src="../../img/objectives/o9/initialtodolist.jpg" width="600" /></p>
-<p>Make the request to <code>https://captainscomms.com/jwtDefault/keys/capsPubKey.key</code> with <code>radioDecoder</code> token and Captain's public key is retrieved.</p>
+<p>Make the request to <code>https://captainscomms.com/jwtDefault/keys/capsPubKey.key</code> with <code>radioMonitor</code> or <code>radioDecoder</code> token and Captain's public key is retrieved.</p>
 <p><img alt="capsPubKey.key" src="../../img/objectives/o9/capspubreq.jpg" /></p>
 <p>Fix up the formatting a bit (no empty spaces) and <code>capsPubKey.key</code> is good to go:</p>
 <p><img alt="capsPubKey.key" src="../../img/objectives/o9/capsPubKey.jpg" width="500" /></p>
@@ -1506,7 +1508,7 @@ Let's refer to Just Watch This Appendix A - it points to the <a href="https://ww
 Now we need to decode it - we can use <a href="https://www.dcode.fr/">DCODE</a> to try to find the most fitting cipher. 
 After trying out a few different ciphers, I found that to <a href="https://www.dcode.fr/systeme-octal">decipher it</a>, DCODE's Octal converter can be used:</p>
 <p><img alt="Decode Octal" src="../../img/objectives/o9/octal.jpg" width="500" /></p>
-<p>Now the final step is to send misleading transmission. Since decoded date and time is 12/24 16:00, we need to send it for 4 hours earlier, so 12:00.</p>
+<p>Now the final step is to send the misleading transmission. Since decoded date and time is 12/24 16:00, we need to send it for 4 hours earlier, so 12:00.</p>
 <p><img alt="Modified Message" src="../../img/objectives/o9/finalmsg.jpg" width="500" /></p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>

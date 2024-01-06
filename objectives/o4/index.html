@@ -1408,19 +1408,19 @@ I know AI sometimes can get specifics wrong unless the prompts are well written.
 </details>
 <h2 id="solution-1">Solution 1<a class="headerlink" href="#solution-1" title="Permanent link">⚓︎</a></h2>
 <p>ChatNPT technology is sweeping through all the North Pole natives.
-In the Penetration Report there are 9 total findings - some are legitimate and some are hallucinated by experimental AI technology. We need to find which are which. Solution 1 takes an absolute 
+In the Penetration Report there are 9 total findings - some are legitimate and some are hallucinated by the experimental AI technology. We need to find which are which. Solution 1 takes an absolute 
 hacker approach basing on a simple fact that essentially there are 9 questions with only 2 possible answers, which gives us
 a maximum of 512 possible answers (2^9). This means that brute-forcing should be possible.<br/></p>
 <p>Let's observe the network traffic using Chrome Dev Tools as answers are being checked to an interesting website:
 <img alt="Headers" src="../../img/objectives/o4/headers.jpg" />
 <img alt="Form Data" src="../../img/objectives/o4/form_data.jpg" /><br/>
 From this information, we have all important pieces to attempt the brute-force:<br/><br/>
-1. The URL for checking answers is https://hhc23-reportinator-dot-holidayhack2023.ue.r.appspot.com/check<br/>
-2. Method used is POST<br/>
+1. The URL for checking answers is <code>https://hhc23-reportinator-dot-holidayhack2023.ue.r.appspot.com/check</code> <br/>
+2. Method used is <code>POST</code><br/>
 3. The data portion is sent as a common form data<br/>
-4. Response for invalid answer is status code 400<br/>
-5. In form data, questions are represented as "input-N," where N is 1-9<br/>
-6. In form data, answers are 0 for legitimate finding and 1 for hallucination<br/></p>
+4. Response for invalid answer is status code <code>400</code><br/>
+5. In form data, questions are represented as <code>input-N</code> where N is 1-9<br/>
+6. In form data, answers are <code>0</code> for legitimate finding and <code>1</code> for hallucination<br/></p>
 <p>Create a simple Python script:
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">brute.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1494,29 +1494,29 @@ From this information, we have all important pieces to attempt the brute-force:<
                                         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WINNER: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
                                         <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-Run the script, and sure enough correct answer is found.
-<img alt="Brute-force" src="../../img/objectives/o4/brute.jpg" />
-Now all that's left is to submit answers 3, 6, and 9 as inaccurate and receive successful validation.
-<img alt="Validated" src="../../img/objectives/o4/report_validation.jpg" /></p>
+Run the script, and sure enough correct answer is found.</p>
+<p><img alt="Brute-force" src="../../img/objectives/o4/brute.jpg" /></p>
+<p>Now all that's left is to submit answers 3, 6, and 9 as inaccurate and receive successful validation.</p>
+<p><img alt="Validated" src="../../img/objectives/o4/report_validation.jpg" /></p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>
 <p>Findings 3, 6, and 9 are inaccurate.</p>
 </div>
 <h2 id="solution-2">Solution 2<a class="headerlink" href="#solution-2" title="Permanent link">⚓︎</a></h2>
 <p>If you enjoy reading reports instead of writing scripts, the solution can be found by looking for small discrepancies in findings.</p>
-<p>In finding 3, the TCP port is above maximum allowed of 65535 - FALSE FINDING:
-<img alt="Question 3" src="../../img/objectives/o4/3.jpg" /></p>
-<p>In finding 6, there's no such thing as HTTP SEND - the correct terminology should be either HTTP GET or HTTP POST:
-<img alt="Question 6" src="../../img/objectives/o4/6.jpg" /></p>
-<p>In finding 9, the location for IP is not valid - an octet cannot be over 255:
-<img alt="Question 9" src="../../img/objectives/o4/9.jpg" /></p>
+<p>In finding 3, the TCP port is above maximum allowed of 65535 - FALSE FINDING:</p>
+<p><img alt="Question 3" src="../../img/objectives/o4/3.jpg" /></p>
+<p>In finding 6, there's no such thing as HTTP SEND - the correct terminology should be either HTTP GET or HTTP POST:</p>
+<p><img alt="Question 6" src="../../img/objectives/o4/6.jpg" /></p>
+<p>In finding 9, the location for IP is not valid - an octet cannot be over 255:</p>
+<p><img alt="Question 9" src="../../img/objectives/o4/9.jpg" /></p>
 <p>Successful outcome is the same!</p>
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">⚓︎</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Noel Boetie @ Rudolph's Rest Resort</p>
 <p>Great job on completing that challenge! Ever thought about how your newfound skills might come into play later on? Keep that mind sharp, and remember, today's victories are tomorrow's strategies!</p>
 </div>
-<p>Next up is Azure 101...</p>
+<p>Noted, Noel. Next up is Azure 101...</p>
 
 
 

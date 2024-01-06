@@ -1417,7 +1417,9 @@ it's <code>$krb5asrep$</code> which is "Kerberos 5, etype 23, AS-REP" hash type 
 <p><img alt="The Hash" src="../../img/objectives/o18/hash.jpg" /></p>
 <p>We also have the password file that contains 143 entries.</p>
 <p><img alt="Password List" src="../../img/objectives/o18/passwordlist.jpg" /></p>
-<p>Run the command: <code>hashcat -a 0 -m 18200 ./hash.txt ./password_list.txt -w 1 -u 1 --kernel-accel 1 --kernel-loops 1 --force</code> and it's cracked!</p>
+<p>Run the command: <br/>
+<code>hashcat -a 0 -m 18200 ./hash.txt ./password_list.txt -w 1 -u 1 --kernel-accel 1 --kernel-loops 1 --force</code> <br/>
+and it's cracked!</p>
 <p>Let's breakdown the command:<br/>
 <code>-a 0</code> is attack mode "straight", meaning dictionary-based<br/>
 <code>-m 18200</code> specifies the hash type (Kerberos 5, etype 23, AS-REP)<br/>

@@ -1413,7 +1413,7 @@ $ az help | less</p>
 <p>Next, you've already been configured with credentials. Use 'az' and your 'account' to 'show' your current details and make sure to pipe to less ( | less )</p>
 </div>
 <p>The <a href="https://learn.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-show">az account show</a> gets the details of a subscription.
-Important to note here, the account is part of Azure Cloud and its name is "northpole-sub".</p>
+Important to note here, the account is part of Azure Cloud and its name is <code>northpole-sub</code>.</p>
 <p><img alt="account" src="../../img/objectives/o5/account.jpg" /></p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>
@@ -1427,7 +1427,7 @@ For more information:<br/>
 https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest<br/></p>
 </div>
 <p>The <a href="https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-list">az group list</a> lists resource groups.
-Notable here is that this account has 2 resource groups: "northpole-rg1" and "northpole-rg2".
+Notable here is that this account has 2 resource groups: <code>northpole-rg1</code> and <code>northpole-rg2</code>.
 ChatGPT is helpful for gentle introduction to Azure's terminology, should it be needed.</p>
 <p><img alt="ChatGPT Groups" src="../../img/objectives/o5/chatgpt_groups.jpg" /></p>
 <p><img alt="groups" src="../../img/objectives/o5/groups.jpg" /></p>
@@ -1444,8 +1444,8 @@ Note: Some of the information returned from this command relates to other cloud 
 </div>
 <p>The <a href="https://learn.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-list">az functionapp list</a> lists function apps and requires you to pass a resource group as a parameter for this question.
 If you are more familiar working with AWS, ChatGPT can make a simple comparison to Azure's terminology. 
-Interesting finding here is that there are no function apps in northpole-rg2 resource group but northpole-rg1 contains one with hostname "northpole-ssh-certs-fa.azurewebsites.net" and interesting tags
-of "/api/create-cert?code=candy-cane-twirl" and "northpole-ssh-certs". It is of type "Microsoft.Web/sites", so a web app and it's currently running.</p>
+Interesting finding here is that there are no function apps in <code>northpole-rg2</code> resource group but <code>northpole-rg1</code> contains one with hostname <code>northpole-ssh-certs-fa.azurewebsites.net</code> and interesting tags
+of <code>/api/create-cert?code=candy-cane-twirl</code> and <code>northpole-ssh-certs</code>. It is of type <code>Microsoft.Web/sites</code>, so a web app and it's currently running.</p>
 <p><img alt="ChatGPT Functionapp" src="../../img/objectives/o5/chatgpt_functionapp.jpg" /></p>
 <p><img alt="functionapp" src="../../img/objectives/o5/functionapp.jpg" /></p>
 <div class="admonition success">
@@ -1460,8 +1460,8 @@ For more information:<br/>
 https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest<br/></p>
 </div>
 <p>The <a href="https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list">az vm list</a> lists details of virtual machines. It also requires a resource group to be passed as a parameter for this question.
-In our case, the infrastructure is starting to make sense - while northpole-rg1 resource group contains the function app, northpole-rg2 has the VM.
-Notable aspects of the VM is that it's Ubuntu Server 16.04 and named "NP-VM1".</p>
+In our case, the infrastructure is starting to make sense - while <code>northpole-rg1</code> resource group contains the function app, <code>northpole-rg2</code> has the VM.
+Notable aspects of the VM is that it's Ubuntu Server 16.04 and named <code>NP-VM1</code>.</p>
 <p><img alt="vm" src="../../img/objectives/o5/vm.jpg" /></p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>
@@ -1476,7 +1476,7 @@ https://learn.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest
 </div>
 <p>The <a href="https://learn.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke">az vm run-command invoke</a> executes a specific command on a VM.
 You need to pass the resource group, VM name, command ID (required), and the command. Arguments to the command can be passed via <code>--parameters</code> switch.
-One potentially interesting detail from the VM is that there's a user named "jinglebells".</p>
+One potentially interesting detail from the VM is that there's a user named <code>jinglebells</code>.</p>
 <p><img alt="runcmd" src="../../img/objectives/o5/runcmd.jpg" /></p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>

@@ -1413,7 +1413,7 @@ importing each individual public key, the server can just trust any client loggi
 the server connection will always be verified (no unknown host warning). Also, from the client's perspective, their public key would need to be signed by this trusted CA and then logging in is possible via
 this established trust. </p>
 <p><img alt="CA Trust" src="../../img/objectives/o6/ca.jpg" /></p>
-<p>From Alabaster, we know the user is <code>monitor</code> and target server is <code>ssh-server-vm.santaworkshopgeeseislands.org</code>. We also have the <a href="https://northpole-ssh-certs-fa.azurewebsites.net/api/create-cert?code=candy-cane-twirl">Request SSH Certificate function app</a> served from 
+<p>From Alabaster, we know the user is <code>monitor</code> and the target server is <code>ssh-server-vm.santaworkshopgeeseislands.org</code>. We also have the <a href="https://northpole-ssh-certs-fa.azurewebsites.net/api/create-cert?code=candy-cane-twirl">Request SSH Certificate function app</a> served from 
 their Azure environment.<br/></p>
 <p>Let's create an SSH key pair using <code>ssh-keygen</code>:</p>
 <p><img alt="monitor Keys" src="../../img/objectives/o6/monitor_keys.jpg" /></p>
@@ -1426,18 +1426,19 @@ it's signed by principal <code>elf</code> and allows PTY access.</p>
 <p><img alt="monitor SSH" src="../../img/objectives/o6/monitorssh.jpg" /></p>
 <p>Also, Satellite Tracker app is an interesting find that's served when first logged in.</p>
 <p><img alt="SatTracker" src="../../img/objectives/o6/sattracker.jpg" /></p>
-<p>For now we have low permission access as the monitor account but it looks like ultimately we need to escalate to <code>alabaster</code> to find out what kind of cookie cache he's implementing.</p>
+<p>For now we have low permission access as the <code>monitor</code> account but it looks like ultimately we need to escalate to <code>alabaster</code> to find out what kind of cookie cache he's implementing.</p>
 <p><img alt="Low Permissions" src="../../img/objectives/o6/lowperm.jpg" /></p>
 <p>Look around the system to find some interesting information related to the SSH app. In the <code>/etc/ssh/auth_principals</code>, the certificate's principals are stored. In addition to the KringleCon talk,
-ChatGPT can be a good source to get more information about these principals. We know that <code>monitor</code> account was signed by "elf" principal so we can assume that "admin" is used for <code>alabaster</code>.</p>
+ChatGPT can be a good source to get more information about these principals. We know that <code>monitor</code> account was signed by <code>elf</code> principal so we can assume that <code>admin</code> is likely used for <code>alabaster</code>
+since he's the admin of this server.</p>
 <p><img alt="Principals" src="../../img/objectives/o6/principals.jpg" /></p>
 <p><img alt="ChatGPT Principals" src="../../img/objectives/o6/chatgpt_principals.jpg" /></p>
-<p>Let's get admin principal to provide us the certificate. This can be done by that Azure REST API elfs mentioned because this machine is in their Azure environment.
+<p>Let's get <code>admin</code> principal to provide us the certificate. This can be done by that Azure REST API elfs mentioned because this machine is in their Azure environment.
 Specifically, Alabaster mentioned the <a href="https://learn.microsoft.com/en-us/rest/api/appservice/web-apps/get-source-control?view=rest-appservice-2022-03-01">get-source-control</a> Azure REST API, which works
-on https://management.azure.com resource. This domain requires an authorization token but since the VM is joined to the Azure environment, it should be possible to get this token using Azure Managed Identity.
+on <code>https://management.azure.com</code> resource. This domain requires an authorization token but since the VM is joined to the Azure environment, it should be possible to get this token using Azure Managed Identity.
 This can be found by looking through Azure documentation or simply asking ChatGPT.</p>
 <p><img alt="ChatGPT Get Token" src="../../img/objectives/o6/chatgpt_gettoken.jpg" /></p>
-<p>The IMDS is <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=linux">Azure Instance Metadata Service</a> and it does provide us the authorization token, just like AI suggested.</p>
+<p>The IMDS is <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=linux">Azure Instance Metadata Service</a> and it does provide us the authorization token, just like ChatGPT suggested.</p>
 <p><img alt="Authorization Token" src="../../img/objectives/o6/auth_token.jpg" /></p>
 <p>This access token can now be used within the <a href="https://learn.microsoft.com/en-us/rest/api/appservice/web-apps/get-source-control?view=rest-appservice-2022-03-01">get-source-control</a> Azure REST API call to get
 the source control configuration of the function app. For convenience, you can store this large token in a file for <code>curl</code>, just don't forget to properly format it:</p>
@@ -1448,13 +1449,16 @@ Now make the REST API request and learn where source code is stored:</p>
 <p>At the <a href="https://github.com/SantaWorkshopGeeseIslandsDevOps/northpole-ssh-certs-fa">GitHub repo</a>, take a look at function app's source code. The interesting part here is as input from client 
 is being processed (JSON form), there's <code>ssh_pub_key</code> that you would expect and <code>pricipal</code> which is apparently available 😁 but looks like if it's not provided, it's just set to <code>DEFAULT_PRINCIPAL</code>.</p>
 <p><img alt="Code" src="../../img/objectives/o6/code.jpg" /></p>
-<p>Well, let's set it explicitly then to not use the default. Generate a new key-pair using <code>ssh-keygen</code> just like we did for <code>monitor</code> and use Burp Suite proxy to manipulate the request before sending it.
-Intercept the request, add the privileged principal and send it:</p>
+<p>Well, let's set it explicitly then to not use the default. Generate a new key-pair using <code>ssh-keygen</code> just like we did for <code>monitor</code> and use <a href="https://portswigger.net/burp/communitydownload">Burp Suite proxy</a> to manipulate the request before sending it.<br/>
+<i>Note: If you need a little intro to Burp, you can find it <a href="https://portswigger.net/burp/documentation/desktop/getting-started">here</a>.</i><br/></p>
+<p>Intercept the request, add the privileged principal (<code>admin</code>) and send it:</p>
 <p><img alt="Admin Request" src="../../img/objectives/o6/admin_request.jpg" /></p>
-<p>Just as expected, this provides the "admin" certificate:</p>
+<p>Just as expected, this provides the admin-signed certificate:</p>
 <p><img alt="Admin Cert" src="../../img/objectives/o6/admin_cert.jpg" /></p>
-<p>Now all that's left is login as <code>alabaster</code> (remember he's the user with "admin" principal), and read his to-do note.</p>
+<p>Copy it over and save as <code>admin_cert</code> just like we did for <code>monitor</code>'s principal.
+Now all that's left is login as <code>alabaster</code> (remember he's the user with <code>admin</code> principal), and read his to-do note.</p>
 <p><img alt="Admin SSH" src="../../img/objectives/o6/admin_ssh.jpg" /></p>
+<p>I mean which one of us did <em>NOT</em> have these kind of items on to-do lists?!?!</p>
 <div class="admonition success">
 <p class="admonition-title">Answer</p>
 <p>gingerbread    </p>
@@ -1471,7 +1475,7 @@ Here's the thing, on my nightly stargazing adventures I started noticing the sam
 I wrote that satellite tracker tool to collect some additional data and sure enough, it's in a geostationary orbit above us.</br>
 No idea what that means yet, but I'm keeping a close eye on that thing!</br></p>
 </div>
-<p>Alabaster is asking all the right questions. Also, what is this geostationary orbit all about?!?! Interesting! For now, I think it makes sense to go for the kill on their Azure environment - Active Directory auditing next...</p>
+<p>Alabaster is asking all the right questions. So what is this geostationary orbit all about?!?! Interesting! For now, I think it makes sense to go for the kill on their Azure environment - Active Directory auditing next...</p>
 
 
 

