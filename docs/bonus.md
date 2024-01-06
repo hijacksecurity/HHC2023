@@ -52,12 +52,12 @@ Be patient if you get a duplicate.
 
 
 I solved this challenge using [Selenium](https://www.selenium.dev/) browser automation and little bit of looking around through game's HTML.
-There's a reference to a "dev page" `https://2023.holidayhackchallenge.com/sea/fishdensityref.html` which shows fish density.
+There's a reference to a "dev only" page `https://2023.holidayhackchallenge.com/sea/fishdensityref.html` which shows fish density.
 
 ![DEV ONLY](./img/misc/devonly.jpg)
 
 The most important fish type density to look at is "Piscis Cyberneticus Skodo" since it's only present in very specific part of the sea.
-Save its image, then use something like [OnTopReplica](https://github.com/LorenzCK/OnTopReplica) to move phish density PNG over the sea minimap,
+Save its image, then use something like [OnTopReplica](https://github.com/LorenzCK/OnTopReplica) to move fish density PNG over the sea minimap,
 setting window opacity to 50%. 
 
 Map edges can be determined by crossing from one side to the other. You need to catch the rare fish type from the white spot on the map. It should look something like this.
@@ -65,7 +65,8 @@ Map edges can be determined by crossing from one side to the other. You need to 
 ![Map](./img/misc/map.jpg)
 
 The Selenium browser automation code will do the trick - make sure to include your credentials in the .env file.
-XPATH's can be copied from within the browser in Inspect Element.
+XPATH's can be copied from within the browser in Inspect Element. Just want to acknowledge that this script is just
+quick & dirty Python to get the job done, it can probably be improved. 😜 
 
 ```python linenums="1" title="fishing.py"
 from selenium import webdriver
