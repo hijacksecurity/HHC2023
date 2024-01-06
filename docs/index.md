@@ -6,7 +6,7 @@
 
 Hello and welcome to my [2023 SANS Holiday Hack Challenge](https://2023.holidayhackchallenge.com/) write-up! My name is HijackSecurity and it's my 2nd year completing HHC all the way through (last one was back
 in 2018). My main motivation for participating this year was to encourage friends to play the game, as well as challenge myself, and
-hopefully write an interesting report to help others learn some new skills or nudge along if you are following along. Huge thanks to the SANS team for creating top-notch CTF, you guys rock! 🤘🙂 <br/>
+hopefully write an interesting report to help others learn some new skills or just nudge if you are following along. Huge thanks to the SANS team for creating top-notch CTF, you guys rock! 🤘🙂 <br/>
 
 This year's HHC was awesome - fun, challenging and highly rewarding! The challenges had it all - AI, healthy amount of Azure APIs, SQL injections, 
 lots of client-side code manipulation (JS breakpoints - what are those), some GameBoy hacking, lock-picking went back to high-school days, JWT's are taking over, practical Java Deserialization exploitation, 
